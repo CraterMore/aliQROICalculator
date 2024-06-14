@@ -14,6 +14,7 @@ type resultTypes = {
     competitorMistakes: number;
     accuracyDifference: string;
     savings: number;
+    cost: number;
   }
 
 function DisplayResults(props: {resultData: resultTypes}) {
@@ -68,7 +69,7 @@ function DisplayResults(props: {resultData: resultTypes}) {
                 <h2 className='text-center text-2xl font-bold'>
                   Number of Mistakes
                 </h2>
-                <p className='text-xs text-center font-light'>based on acceptable accuracy</p>
+                <p className='text-xs text-center font-light'>out of 24 aliquots, based on target accuracy</p>
                 <div className='flex justify-between mt-2 gap-4'>
                   <div className='h-24 w-1/3 bg-primary-light border-4 border-primary-bright rounded-lg flex flex-col'>
                     <div className='text-center font-semibold'>
@@ -98,6 +99,7 @@ function DisplayResults(props: {resultData: resultTypes}) {
           </div>
 
           {/* Savings */}
+          {/*
           <div>
             <div className='flex'>
             <div className='w-1/3 p-4'>
@@ -120,7 +122,57 @@ function DisplayResults(props: {resultData: resultTypes}) {
               </div>
             </div>
           </div>
+              */}
           <SavingsDialog savingsOpen={savingsOpen} setSavingsOpen={setSavingsOpen}/>
+          <div className='w-[400px] -translate-x-3 h-9 my-2 bg-celltreat'>
+            <h2 className='text-center w-full text-xl text-white font-bold my-auto pt-1'>
+              What does it mean for your experiment?
+            </h2>
+          </div>
+          <p className=''>
+            For {props.resultData.cost == 368 ? "a typical week-long cell culture analysis" : "your custom experiment"}...
+          </p>
+          {props.resultData.cost == 368 ? (
+          <div className='grid grid-cols-[2.5rem_auto_auto] grid-rows-3 gap-y-1 gap-x-2'>
+            <div className='w-10'>
+              <img src={timeSave} className='object-contain'/>
+            </div>
+            <div className='text-lg justify-self-start text-left my-auto'>
+              Labor
+            </div>
+            <div className='text-lg justify-self-end my-auto'>
+              $210
+            </div>
+            <div className='w-10'>
+              <img src={timeSave}/>
+            </div>
+            <div className='text-lg justify-self-start text-left my-auto'>
+              Supplies
+            </div>
+            <div className='text-lg justify-self-end my-auto'>
+              $33
+            </div>
+            <div className='w-10'>
+              <img src={timeSave}/>
+            </div>
+            <div className='text-lg justify-self-start text-left my-auto'>
+              Analysis
+            </div>
+            <div className='text-lg justify-self-end my-auto'>
+              $125
+            </div>
+          </div>
+        )
+          : <></>}
+          <div className='col-span-3 h-1 bg-black rounded-full my-2'/>
+          <div className='flex flex-row justify-end gap-3'>
+            <div className='text-xl font-bold text-left mt-auto text-primary-dark'>
+              Total Cost
+            </div>
+            <div className='font-bold my-auto text-3xl text-primary-bright'>
+              ${props.resultData.cost}
+            </div>
+          </div>
         </div>
     ); 
 }

@@ -8,6 +8,7 @@ type inputTypes = {
   container: string;
   aliquots: number;
   accuracy: string;
+  cost: number;
 }
 
 type resultTypes = {
@@ -18,13 +19,15 @@ type resultTypes = {
   competitorMistakes: number;
   accuracyDifference: string;
   savings: number;
+  cost: number;
 }
 
 function App() {
   const [inputData, setInputData] = useState<inputTypes>({
     container: "15mL Centrifuge",
-    aliquots: 100,
+    aliquots: 24,
     accuracy: "0.95",
+    cost: 368,
   });
 
   const [resultData, setResultData] = useState<resultTypes>({
@@ -35,6 +38,7 @@ function App() {
     competitorMistakes: 0,
     accuracyDifference: "",
     savings: 0,
+    cost: inputData.cost,
   })
 
   function calculate() {
@@ -82,7 +86,7 @@ function App() {
     const costOfFail : number = costOfExperimentFailure * (inputData.aliquots/24);
 
     
-    setResultData({percentFaster: percentFaster, aliQTime: aliQTime, competitorTime: compTime, aliQMistakes: aliQMistakes, competitorMistakes: compMistakes, accuracyDifference: "", savings: costOfFail});
+    setResultData({percentFaster: percentFaster, aliQTime: aliQTime, competitorTime: compTime, aliQMistakes: aliQMistakes, competitorMistakes: compMistakes, accuracyDifference: "", savings: costOfFail, cost: inputData.cost});
   }
 
   useEffect(() => {
@@ -93,8 +97,8 @@ function App() {
   return (
     <>
       <div className='w-full h-[800px] flex bg-slate-100 flex-grow flex-col'>
-        <h1 className='self-center text-3xl font-bold my-3'>
-          ali-Q 2 ROI Calculator
+        <h1 className='self-center text-2xl font-bold my-3'>
+          ali-Q 2 Experiment Simulator
         </h1>
 
         {/* Container Selection */}
