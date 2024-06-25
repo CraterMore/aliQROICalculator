@@ -27,11 +27,11 @@ function InputSelection(props : {inputData : inputTypes, setInputData : (value: 
               value={props.inputData.accuracy}
               color="secondary"
             >
-              <ToggleButton value="0.90"  color="secondary">
-              ±10%
-              </ToggleButton>
               <ToggleButton value="0.95"  color="secondary">
               ±5%
+              </ToggleButton>
+              <ToggleButton value="0.96"  color="secondary">
+              ±4%
               </ToggleButton>
               <ToggleButton value="0.97"  color="secondary">
               ±3%

@@ -174,7 +174,7 @@ function DisplayResults(props: {resultData: resultTypes, inputData: inputTypes})
           </div>
           <div className='flex flex-row gap-3 mt-3'>
             <div className='font-bold my-auto text-4xl text-primary-bright'>
-              {props.resultData.chanceOfFail.toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2})}
+              {props.resultData.chanceOfFail.toLocaleString(undefined,{style: 'percent', minimumFractionDigits:1})}
             </div>
             <div className='text-sm text-left text-primary-dark'>
               chance of making at least one mistake using a competitor product

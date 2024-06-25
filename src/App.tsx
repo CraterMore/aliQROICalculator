@@ -44,15 +44,15 @@ function App() {
     const percentFaster = Number(1- (aliQTime/compTime)).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2}); 
 
     const mistakesPerHundredAliQ: {[key: string]: number} = {
-      "0.90": 0,
       "0.95": 0,
+      "0.96": 0,
       "0.97": 0,
       "0.98": 0,
     }
 
     const mistakesPerHundredCompetitors: {[key: string]: number} = {
-      "0.90": 0,
       "0.95": 8,
+      "0.96": 13.5,
       "0.97": 23,
       "0.98": 42.5
     }
