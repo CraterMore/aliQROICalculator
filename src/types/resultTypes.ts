@@ -7,4 +7,5 @@ export default interface resultTypes {
     accuracyDifference: string;
     savings: number;
     cost: number;
+    chanceOfFail: number;
   }

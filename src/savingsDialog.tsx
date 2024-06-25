@@ -1,4 +1,4 @@
-import { Dialog, DialogContent, DialogTitle } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 
 function SavingsDialog(props : {savingsOpen : boolean, setSavingsOpen : (state: boolean) => void}) {
     function closeDialog() {
@@ -17,12 +17,15 @@ function SavingsDialog(props : {savingsOpen : boolean, setSavingsOpen : (state: 
           }}
         >
             <DialogTitle>
-                How did we calculate this?
+                More about "Competitor" Products
 
             </DialogTitle>
             <DialogContent>
-                Here is how!
+                Competitor data was gathered using the same methodology as ali-Q 2 data. Competitor products are non-aliquoting pipet controllers that require you to manually observe the graduations when dispensing.
             </DialogContent>
+            <DialogActions>
+                <Button onClick={closeDialog} color="secondary" variant="text">Close</Button>
+            </DialogActions>
         </Dialog>
     );
 }

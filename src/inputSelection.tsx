@@ -41,12 +41,13 @@ function InputSelection(props : {inputData : inputTypes, setInputData : (value: 
               </ToggleButton>
             </ToggleButtonGroup>
           </div>
-          <div className='w-full'>
+          <div className='self-end'>
             <Button
               variant='outlined'
               color='secondary'
               onClick={openSettings}
               className='mx-auto'
+              size="small"
             >
               Advanced Settings
             </Button>

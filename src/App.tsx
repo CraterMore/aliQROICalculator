@@ -23,6 +23,7 @@ function App() {
     accuracyDifference: "",
     savings: 0,
     cost: inputData.cost,
+    chanceOfFail: 1,
   })
 
   function calculate() {
@@ -70,7 +71,7 @@ function App() {
     const costOfFail : number = costOfExperimentFailure * (inputData.aliquots/24);
 
     
-    setResultData({percentFaster: percentFaster, aliQTime: aliQTime, competitorTime: compTime, aliQMistakes: aliQMistakes, competitorMistakes: compMistakes, accuracyDifference: "", savings: costOfFail, cost: inputData.cost});
+    setResultData({percentFaster: percentFaster, aliQTime: aliQTime, competitorTime: compTime, aliQMistakes: aliQMistakes, competitorMistakes: compMistakes, accuracyDifference: "", savings: costOfFail, cost: inputData.cost, chanceOfFail: (1 - distErrors[0])});
   }
 
   useEffect(() => {
@@ -80,7 +81,7 @@ function App() {
 
   return (
     <>
-      <div className='w-full h-[800px] flex bg-slate-100 flex-grow flex-col'>
+      <div className='w-full h-[900px] flex bg-slate-100 flex-grow flex-col'>
         <h1 className='self-center text-2xl font-bold my-3'>
           ali-Q 2 Experiment Simulator
         </h1>

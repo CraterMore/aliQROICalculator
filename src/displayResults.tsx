@@ -72,9 +72,17 @@ function DisplayResults(props: {resultData: resultTypes, inputData: inputTypes})
                   </div>
 
                   <div className='h-24 w-2/3 bg-slate-200 border-4 border-slate-500 rounded-lg flex flex-col'>
-                    <div className='text-center font-semibold'>
-                      Competitors
-                    </div>  
+                    <div className='flex justify-center'>
+                      <div className='text-center font-semibold'>
+                          Competitors
+                      </div>  
+                      <button className='my-auto rounded-full w-4 h-4 border-2 border-neutral-900 ml-1 hover:bg-neutral-600' onClick={() => {setSavingsOpen(true)}}>
+                        <div className='m-auto text-center text-xs -translate-y-0.5 text-neutral-600 hover:text-neutral-300'>
+                          ?
+                        </div>
+                      </button>
+                    </div>
+                    
                     <div className='text-center font-bold text-4xl my-auto'>
                       {props.resultData.competitorMistakes}
                     </div>
@@ -120,11 +128,11 @@ function DisplayResults(props: {resultData: resultTypes, inputData: inputTypes})
               What does it mean for your experiment?
             </h2>
           </div>
-          <p className=''>
-            For {props.resultData.cost == 368 ? "a typical week-long cell culture analysis" : "your custom experiment"}...
+          <p className='text-sm'>
+            {props.resultData.cost == 368 ? "During a typical week-long cell culture analysis with a 24-well cell culture plate, you may spend 7 hours seeding, treating, collecting, and analyzing cells. The time and cost spent can easily add up..." : "For your custom experiment..."}
           </p>
           {props.resultData.cost == 368 ? (
-          <div className='grid grid-cols-[2.5rem_auto_auto] grid-rows-3 gap-y-1 gap-x-2'>
+          <div className='grid grid-cols-[2.5rem_auto_auto] grid-rows-3 gap-y-1 gap-x-2 mt-1'>
             <div className='w-10'>
               <img src={timeSave} className='object-contain'/>
             </div>
@@ -155,13 +163,26 @@ function DisplayResults(props: {resultData: resultTypes, inputData: inputTypes})
           </div>
         )
           : <></>}
-          <div className='col-span-3 h-1 bg-black rounded-full my-2'/>
+          <div className='col-span-3 h-0.5 bg-black rounded-full my-2'/>
           <div className='flex flex-row justify-end gap-3'>
             <div className='text-xl font-bold text-left mt-auto text-primary-dark'>
               Total Cost
             </div>
             <div className='font-bold my-auto text-3xl text-primary-bright'>
               ${props.resultData.cost}
+            </div>
+          </div>
+          <div className='flex flex-row gap-3 mt-3'>
+            <div className='font-bold my-auto text-4xl text-primary-bright'>
+              {props.resultData.chanceOfFail.toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2})}
+            </div>
+            <div className='text-sm text-left text-primary-dark'>
+              chance of making at least one mistake using a competitor product
+            </div>
+          </div>
+          <div className='w-[400px] -translate-x-3 h-max my-2 bg-primary-bright'>
+            <div className='text-lg font-bold text-center my-1 text-white'>
+              Don't let one mistake cost you! Use <>ali-Q 2</>
             </div>
           </div>
         </div>
