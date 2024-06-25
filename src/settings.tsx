@@ -3,13 +3,7 @@ import { useEffect, useState } from "react";
 import { Unstable_NumberInput as NumberInput } from '@mui/base/Unstable_NumberInput';
 import centrifuge from "./assets/centrifuge.png";
 import petriDish from "./assets/petri-dish.png";
-
-type inputTypes = {
-    container: string;
-    aliquots: number;
-    accuracy: string;
-    cost: number;
-}
+import inputTypes from "./types/inputTypes";
 
 function AdvSettings(props : {settingsOpen : boolean, setSettingsOpen : (state : boolean) => void, inputData : inputTypes, setInputData : (value: inputTypes) => void}) {
     function formReset() : inputTypes {

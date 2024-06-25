@@ -2,25 +2,9 @@ import { useEffect, useState } from 'react'
 import InputSelection from './inputSelection';
 import DisplayResults from './displayResults';
 import pmf from '@stdlib/stats-base-dists-binomial-pmf';
+import inputTypes from './types/inputTypes';
+import resultTypes from './types/resultTypes';
 
-
-type inputTypes = {
-  container: string;
-  aliquots: number;
-  accuracy: string;
-  cost: number;
-}
-
-type resultTypes = {
-  percentFaster : string;
-  aliQTime: number;
-  competitorTime: number;
-  aliQMistakes: number;
-  competitorMistakes: number;
-  accuracyDifference: string;
-  savings: number;
-  cost: number;
-}
 
 function App() {
   const [inputData, setInputData] = useState<inputTypes>({
@@ -107,7 +91,7 @@ function App() {
         <div className='w-full h-1 bg-celltreat'/>
 
         {/* Results */}
-        <DisplayResults resultData={resultData}/>
+        <DisplayResults resultData={resultData} inputData={inputData}/>
         
       </div>
     </>

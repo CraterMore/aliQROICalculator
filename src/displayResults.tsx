@@ -5,19 +5,10 @@ import accuracyTarget from "./assets/darts.png"
 import savingsImg from "./assets/savings.png"
 import SavingsDialog from './savingsDialog';
 import { useState } from 'react';
+import inputTypes from './types/inputTypes';
+import resultTypes from './types/resultTypes';
 
-type resultTypes = {
-    percentFaster : string;
-    aliQTime: number;
-    competitorTime: number;
-    aliQMistakes: number;
-    competitorMistakes: number;
-    accuracyDifference: string;
-    savings: number;
-    cost: number;
-  }
-
-function DisplayResults(props: {resultData: resultTypes}) {
+function DisplayResults(props: {resultData: resultTypes, inputData: inputTypes}) {
     const [savingsOpen, setSavingsOpen] = useState<boolean>(false);
 
     return (
@@ -69,7 +60,7 @@ function DisplayResults(props: {resultData: resultTypes}) {
                 <h2 className='text-center text-2xl font-bold'>
                   Number of Mistakes
                 </h2>
-                <p className='text-xs text-center font-light'>out of 24 aliquots, based on target accuracy</p>
+                <p className='text-xs text-center font-light'>out of {props.inputData.aliquots} aliquots, based on target accuracy</p>
                 <div className='flex justify-between mt-2 gap-4'>
                   <div className='h-24 w-1/3 bg-primary-light border-4 border-primary-bright rounded-lg flex flex-col'>
                     <div className='text-center font-semibold'>

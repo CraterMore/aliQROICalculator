@@ -1,14 +1,7 @@
 import { Button, ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { useState } from "react";
 import AdvSettings from "./settings";
-
-
-type inputTypes = {
-    container: string;
-    aliquots: number;
-    accuracy: string;
-    cost: number;
-  }
+import inputTypes from "./types/inputTypes";
 
 function InputSelection(props : {inputData : inputTypes, setInputData : (value: inputTypes) => void}) {
   const [settingsOpen, setSettingsOpen] = useState<boolean>(false);
